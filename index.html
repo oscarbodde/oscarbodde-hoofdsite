@@ -98,6 +98,25 @@
   .navcta{display:flex;align-items:center;gap:16px;}
   .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;}
 
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    max-width:1120px;margin:8px auto 0;
+    background:var(--forest);
+    border-radius:20px;
+    padding:10px 20px 18px;
+    box-shadow:0 8px 30px rgba(11,46,34,0.18);
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{
+    color:rgba(255,255,255,0.85);
+    font-size:15px;font-weight:500;
+    padding:12px 4px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .mobile-menu a:last-child{border-bottom:none;}
+  .mobile-menu a.cta-btn{border-bottom:none;color:var(--lime-ink);}
+
   /* HERO */
   .hero{
     padding:96px 0 100px;
@@ -399,6 +418,7 @@
 
   @media(max-width:860px){
     nav.links{display:none;}
+    .navcta{display:none;}
     .menu-toggle{display:block;}
     .hero-grid, .two-col, .dial-row, .contact-grid, .teaser-cards, .feature-grid{grid-template-columns:1fr;}
     .feature-grid.wide{grid-template-columns:1fr 1fr;}
@@ -433,8 +453,17 @@
     <div class="navcta">
       <a href="https://groeiscan.oscarbodde.nl/" class="cta-btn" target="_blank" rel="noopener">Doe de groeiscan</a>
     </div>
-    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
   </div>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#groeiscan">Groeiscan</a>
+    <a href="#systemen">Systemen</a>
+    <a href="#business-coaching">Business coaching</a>
+    <a href="#over-mij">Over mij</a>
+    <a href="#contact">Contact</a>
+    <a href="https://groeiscan.oscarbodde.nl/" class="cta-btn" target="_blank" rel="noopener" style="margin-top:6px;justify-content:center;">Doe de groeiscan</a>
+  </nav>
 </header>
 
 <section class="hero" id="home">
@@ -682,6 +711,23 @@
 </footer>
 
 <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuToggle.innerHTML = isOpen ? '&times;' : '&#9776;';
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuToggle.innerHTML = '&#9776;';
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
   document.querySelectorAll('.tab-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
       document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
