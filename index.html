@@ -665,20 +665,22 @@
         <li><span class="ic">&#9679;</span> Apeldoorn</li>
       </ul>
     </div>
-    <form class="contact-form" onsubmit="return false;">
+    <form class="contact-form" id="contact-form">
       <div class="field">
         <label>Naam</label>
-        <input type="text" placeholder="Je naam">
+        <input type="text" id="cf-naam" placeholder="Je naam" required>
       </div>
       <div class="field">
         <label>E-mail</label>
-        <input type="email" placeholder="naam@bedrijf.nl">
+        <input type="email" id="cf-email" placeholder="naam@bedrijf.nl" required>
       </div>
       <div class="field">
         <label>Bericht</label>
-        <textarea placeholder="Waar kan ik je mee helpen?"></textarea>
+        <textarea id="cf-bericht" placeholder="Waar kan ik je mee helpen?" required></textarea>
       </div>
-      <button type="submit" class="cta-btn" style="width:100%;">Verzenden</button>
+      <p id="cf-error" style="color:#D85A30;font-size:13.5px;margin-bottom:12px;display:none;"></p>
+      <button type="submit" class="cta-btn" id="cf-submit" style="width:100%;">Verzenden</button>
+      <p id="cf-success" style="color:var(--forest);font-weight:600;font-size:14.5px;margin-top:14px;display:none;">Bedankt! Je bericht is verstuurd, ik neem snel contact op.</p>
     </form>
   </div>
 </section>
@@ -711,6 +713,66 @@
 </footer>
 
 <script>
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errorEl = document.getElementById('cf-error');
+      const successEl = document.getElementById('cf-success');
+      const submitBtn = document.getElementById('cf-submit');
+      errorEl.style.display = 'none';
+      successEl.style.display = 'none';
+
+      const naam = document.getElementById('cf-naam').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
+      const bericht = document.getElementById('cf-bericht').value.trim();
+
+      if (!naam || !email || !bericht) {
+        errorEl.textContent = 'Vul alle velden in.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Versturen...';
+
+      try {
+        const res = await fetch('https://uqgxixbkixoinltqfibj.supabase.co/rest/v1/contact_messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ3hpeGJraXhvaW5sdHFmaWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MjEwNzIsImV4cCI6MjA4Njk5NzA3Mn0.qCCqyNbQeWBCkr5_ShT7IPTRXJrW_UrHzgJ1hClZ9UM',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ3hpeGJraXhvaW5sdHFmaWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MjEwNzIsImV4cCI6MjA4Njk5NzA3Mn0.qCCqyNbQeWBCkr5_ShT7IPTRXJrW_UrHzgJ1hClZ9UM'
+          },
+          body: JSON.stringify({ naam, email, bericht })
+        });
+
+        if (!res.ok) throw new Error('Insert failed');
+
+        // E-mailnotificatie via Web3Forms (mag stil falen; het bericht staat sowieso al opgeslagen)
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: '8deb3e06-edb8-4c43-b4cf-5ee33a0d87e4',
+            subject: 'Nieuw contactformulier bericht van ' + naam,
+            name: naam,
+            email: email,
+            message: bericht
+          })
+        }).catch(() => {});
+
+        contactForm.reset();
+        successEl.style.display = 'block';
+      } catch (err) {
+        errorEl.textContent = 'Er ging iets mis bij het versturen. Probeer het nog eens, of mail direct naar info@oscarbodde.nl.';
+        errorEl.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Verzenden';
+      }
+    });
+  }
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   if (menuToggle && mobileMenu) {
