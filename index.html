@@ -737,20 +737,7 @@
       submitBtn.textContent = 'Versturen...';
 
       try {
-        const res = await fetch('https://uqgxixbkixoinltqfibj.supabase.co/rest/v1/contact_messages', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ3hpeGJraXhvaW5sdHFmaWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MjEwNzIsImV4cCI6MjA4Njk5NzA3Mn0.qCCqyNbQeWBCkr5_ShT7IPTRXJrW_UrHzgJ1hClZ9UM',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ3hpeGJraXhvaW5sdHFmaWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MjEwNzIsImV4cCI6MjA4Njk5NzA3Mn0.qCCqyNbQeWBCkr5_ShT7IPTRXJrW_UrHzgJ1hClZ9UM'
-          },
-          body: JSON.stringify({ naam, email, bericht })
-        });
-
-        if (!res.ok) throw new Error('Insert failed');
-
-        // E-mailnotificatie via Web3Forms (mag stil falen; het bericht staat sowieso al opgeslagen)
-        fetch('https://api.web3forms.com/submit', {
+        const web3res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -760,6 +747,19 @@
             email: email,
             message: bericht
           })
+        });
+
+        if (!web3res.ok) throw new Error('Web3Forms send failed');
+
+        // Ook opslaan in Supabase voor de admin-omgeving (mag stil falen; de mail is al onderweg)
+        fetch('https://uqgxixbkixoinltqfibj.supabase.co/rest/v1/contact_messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ3hpeGJraXhvaW5sdHFmaWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MjEwNzIsImV4cCI6MjA4Njk5NzA3Mn0.qCCqyNbQeWBCkr5_ShT7IPTRXJrW_UrHzgJ1hClZ9UM',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ3hpeGJraXhvaW5sdHFmaWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MjEwNzIsImV4cCI6MjA4Njk5NzA3Mn0.qCCqyNbQeWBCkr5_ShT7IPTRXJrW_UrHzgJ1hClZ9UM'
+          },
+          body: JSON.stringify({ naam, email, bericht })
         }).catch(() => {});
 
         contactForm.reset();
