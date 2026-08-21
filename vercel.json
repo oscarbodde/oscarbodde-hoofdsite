@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/groeiscan", "destination": "https://groeiscan.oscarbodde.nl", "permanent": false },
+    { "source": "/groeiscan/:path*", "destination": "https://groeiscan.oscarbodde.nl/:path*", "permanent": false }
+  ]
+}
