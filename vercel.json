@@ -1,6 +1,10 @@
 {
   "redirects": [
     { "source": "/groeiscan", "destination": "https://groeiscan.oscarbodde.nl", "permanent": false },
-    { "source": "/groeiscan/:path*", "destination": "https://groeiscan.oscarbodde.nl/:path*", "permanent": false }
+    { "source": "/groeiscan/:path*", "destination": "https://groeiscan.oscarbodde.nl/:path*", "permanent": false },
+    { "source": "/algemene-voorwaarden.html", "destination": "/algemene-voorwaarden", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/algemene-voorwaarden", "destination": "/algemene-voorwaarden.html" }
   ]
 }
