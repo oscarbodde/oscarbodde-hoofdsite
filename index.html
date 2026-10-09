@@ -793,12 +793,12 @@
         if (!web3res.ok) throw new Error('Web3Forms send failed');
 
         // Ook opslaan in Supabase voor de admin-omgeving (mag stil falen; de mail is al onderweg)
-        fetch('https://uqgxixbkixoinltqfibj.supabase.co/rest/v1/contact_messages', {
+        fetch('https://jtlymmrvowymdxsdbcgo.supabase.co/rest/v1/contact_messages', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ3hpeGJraXhvaW5sdHFmaWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MjEwNzIsImV4cCI6MjA4Njk5NzA3Mn0.qCCqyNbQeWBCkr5_ShT7IPTRXJrW_UrHzgJ1hClZ9UM',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ3hpeGJraXhvaW5sdHFmaWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MjEwNzIsImV4cCI6MjA4Njk5NzA3Mn0.qCCqyNbQeWBCkr5_ShT7IPTRXJrW_UrHzgJ1hClZ9UM'
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0bHltbXJ2b3d5bWR4c2RiY2dvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyMjUyMTUsImV4cCI6MjEwMjgwMTIxNX0.wrRMxZYkUS5vYngkTBNUeXaUeW9xP8IGVjiXgpBF_OY',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0bHltbXJ2b3d5bWR4c2RiY2dvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyMjUyMTUsImV4cCI6MjEwMjgwMTIxNX0.wrRMxZYkUS5vYngkTBNUeXaUeW9xP8IGVjiXgpBF_OY'
           },
           body: JSON.stringify({ naam, email, bericht })
         }).catch(() => {});
