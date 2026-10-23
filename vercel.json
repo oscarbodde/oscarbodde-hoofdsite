@@ -1,10 +1,57 @@
 {
   "redirects": [
-    { "source": "/groeiscan", "destination": "https://groeiscan.oscarbodde.nl", "permanent": false },
-    { "source": "/groeiscan/:path*", "destination": "https://groeiscan.oscarbodde.nl/:path*", "permanent": false },
-    { "source": "/algemene-voorwaarden.html", "destination": "/algemene-voorwaarden", "permanent": true }
+    {
+      "source": "/groeiscan",
+      "destination": "https://groeiscan.oscarbodde.nl",
+      "permanent": false
+    },
+    {
+      "source": "/groeiscan/:path*",
+      "destination": "https://groeiscan.oscarbodde.nl/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/algemene-voorwaarden.html",
+      "destination": "/algemene-voorwaarden",
+      "permanent": true
+    },
+    {
+      "source": "/systemen.html",
+      "destination": "/systemen",
+      "permanent": true
+    },
+    {
+      "source": "/commercie.html",
+      "destination": "/commercie",
+      "permanent": true
+    },
+    {
+      "source": "/ontwikkeling.html",
+      "destination": "/ontwikkeling",
+      "permanent": true
+    },
+    {
+      "source": "/business-coaching",
+      "destination": "/ontwikkeling",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/algemene-voorwaarden", "destination": "/algemene-voorwaarden.html" }
+    {
+      "source": "/algemene-voorwaarden",
+      "destination": "/algemene-voorwaarden.html"
+    },
+    {
+      "source": "/systemen",
+      "destination": "/systemen.html"
+    },
+    {
+      "source": "/commercie",
+      "destination": "/commercie.html"
+    },
+    {
+      "source": "/ontwikkeling",
+      "destination": "/ontwikkeling.html"
+    }
   ]
 }
