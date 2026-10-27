@@ -519,3 +519,6 @@
   }
   .stat .big.long{font-size:34px;line-height:1.1;}
   @media(max-width:860px){.stat .big.long{font-size:30px;}}
+
+  a.textlink{color:var(--forest);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--lime);text-decoration-thickness:2px;font-weight:500;}
+  a.textlink:hover{background:var(--lime);text-decoration-color:transparent;}

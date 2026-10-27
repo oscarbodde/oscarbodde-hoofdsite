@@ -4,28 +4,93 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Systemen voor ondernemers | Oscar Bodde, Apeldoorn</title>
-<meta name="description" content="Oscar Bodde bouwt samen met Maarten systemen die het werk in jouw bedrijf overnemen: automatisering, koppelingen tussen tools en processen die vanzelf lopen. Voor ondernemers die nog veel met de hand doen.">
+<meta name="description" content="Systemen die het werk in je bedrijf overnemen: automatisering, koppelingen tussen tools en processen die vanzelf lopen. Voor ondernemers die veel met de hand doen.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://oscarbodde.nl/systemen">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Oscar Bodde Coaching",
-  "url": "https://oscarbodde.nl/systemen",
-  "image": "https://oscarbodde.nl/images/oscar-bodde-maarten-systemen-bouwen.jpg",
-  "description": "Oscar Bodde bouwt samen met Maarten systemen die het werk in jouw bedrijf overnemen: automatisering, koppelingen tussen tools en processen die vanzelf lopen. Voor ondernemers die nog veel met de hand doen.",
-  "address": {"@type": "PostalAddress", "streetAddress": "Beurtvaartstraat 75", "postalCode": "7311 MS", "addressLocality": "Apeldoorn", "addressCountry": "NL"},
-  "telephone": "+31646434142",
-  "email": "info@oscarbodde.nl",
-  "areaServed": "NL",
-  "founder": {"@type": "Person", "name": "Oscar Bodde"}
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "ProfessionalService",
+   "@id": "https://oscarbodde.nl/#bedrijf",
+   "name": "Oscar Bodde Coaching",
+   "url": "https://oscarbodde.nl/",
+   "image": "https://oscarbodde.nl/images/oscar-bodde-trainer-apeldoorn.jpg",
+   "description": "Trainer voor ondernemers in sales en persoonlijk leiderschap, en bouwer van systemen die het werk overnemen.",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Beurtvaartstraat 75",
+    "postalCode": "7311 MS",
+    "addressLocality": "Apeldoorn",
+    "addressCountry": "NL"
+   },
+   "telephone": "+31646434142",
+   "email": "info@oscarbodde.nl",
+   "areaServed": "NL",
+   "founder": {
+    "@id": "https://oscarbodde.nl/#oscar"
+   },
+   "sameAs": [
+    "https://www.linkedin.com/in/oscar-bodde/"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://oscarbodde.nl/#oscar",
+   "name": "Oscar Bodde",
+   "jobTitle": "Trainer in sales en persoonlijk leiderschap",
+   "url": "https://oscarbodde.nl/over-mij",
+   "image": "https://oscarbodde.nl/images/oscar-bodde-trainer-apeldoorn.jpg",
+   "sameAs": [
+    "https://www.linkedin.com/in/oscar-bodde/"
+   ],
+   "worksFor": {
+    "@id": "https://oscarbodde.nl/#bedrijf"
+   }
+  },
+  {
+   "@type": "Service",
+   "name": "Systemen en automatisering voor ondernemers",
+   "description": "Automatisering, koppelingen tussen tools en processen die het werk in een bedrijf overnemen.",
+   "serviceType": "Systemen",
+   "url": "https://oscarbodde.nl/systemen",
+   "provider": {
+    "@id": "https://oscarbodde.nl/#bedrijf"
+   },
+   "areaServed": {
+    "@type": "Country",
+    "name": "Nederland"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://oscarbodde.nl/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Systemen",
+     "item": "https://oscarbodde.nl/systemen"
+    }
+   ]
+  }
+ ]
 }
 </script>
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Oscar Bodde">
 <meta property="og:title" content="Systemen voor ondernemers | Oscar Bodde, Apeldoorn">
-<meta property="og:description" content="Oscar Bodde bouwt samen met Maarten systemen die het werk in jouw bedrijf overnemen: automatisering, koppelingen tussen tools en processen die vanzelf lopen. Voor ondernemers die nog veel met de hand doen.">
+<meta property="og:description" content="Systemen die het werk in je bedrijf overnemen: automatisering, koppelingen tussen tools en processen die vanzelf lopen. Voor ondernemers die veel met de hand doen.">
 <meta property="og:url" content="https://oscarbodde.nl/systemen">
-<meta property="og:image" content="https://oscarbodde.nl/images/oscar-bodde-maarten-systemen-bouwen.jpg">
+<meta property="og:image" content="https://oscarbodde.nl/images/og-systemen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="nl_NL">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -35,18 +100,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/site.css?v=3">
+<link rel="stylesheet" href="/site.css?v=4">
 </head>
 <body>
 <header>
   <div class="navpill">
     <a class="wordmark" href="/">Oscar Bodde</a>
-    <nav class="links"><a href="/">Home</a><a href="/systemen" class="actief">Systemen</a><a href="/commercie">Sales</a><a href="/ontwikkeling">Ontwikkeling</a><a href="/#over-mij">Over mij</a><a href="/#contact">Contact</a></nav>
+    <nav class="links"><a href="/">Home</a><a href="/systemen" class="actief">Systemen</a><a href="/commercie">Sales</a><a href="/ontwikkeling">Ontwikkeling</a><a href="/over-mij">Over mij</a><a href="/#contact">Contact</a></nav>
     <div class="navcta"><a href="https://groeiscan.oscarbodde.nl/" class="cta-btn" target="_blank" rel="noopener">Doe de groeiscan</a></div>
     <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
   </div>
   <nav class="mobile-menu" id="mobile-menu">
-    <a href="/">Home</a><a href="/systemen" class="actief">Systemen</a><a href="/commercie">Sales</a><a href="/ontwikkeling">Ontwikkeling</a><a href="/#over-mij">Over mij</a><a href="/#contact">Contact</a>
+    <a href="/">Home</a><a href="/systemen" class="actief">Systemen</a><a href="/commercie">Sales</a><a href="/ontwikkeling">Ontwikkeling</a><a href="/over-mij">Over mij</a><a href="/#contact">Contact</a>
     <a href="https://groeiscan.oscarbodde.nl/" class="cta-btn" target="_blank" rel="noopener" style="margin-top:6px;text-align:center;">Doe de groeiscan</a>
   </nav>
 </header>
@@ -62,7 +127,7 @@
         <a href="https://groeiscan.oscarbodde.nl/" class="cta-btn outline" target="_blank" rel="noopener">Doe de groeiscan</a>
       </div>
     </div>
-    <img class="rounded" src="/images/oscar-bodde-maarten-systemen-bouwen.jpg" alt="Oscar Bodde en Maarten bouwen samen systemen voor ondernemers" width="900" height="720" loading="eager">
+    <img class="rounded" src="/images/oscar-bodde-maarten-systemen-bouwen.jpg" alt="Oscar Bodde en Maarten werken samen aan systemen en automatisering voor ondernemers" width="900" height="720" loading="eager" fetchpriority="high" decoding="async">
   </div>
 </section>
 
@@ -85,7 +150,7 @@
     <div class="voorwie-box">
       <span class="eyebrow">Voor wie</span>
       <h2>Voor ondernemers die nog veel met de hand doen</h2>
-      <p>Doe jij of je team nog saaie, repetitieve taken zelf? Denk aan offertes opstellen, mails beantwoorden, gegevens overtypen of afspraken najagen. Dan is er bijna altijd een systeem dat dat werk overneemt, en daar zit vaak de snelste winst. De grootte van je bedrijf maakt daarbij niet uit.</p>
+      <p>Doe jij of je team nog saaie, repetitieve taken zelf? Denk aan offertes opstellen, mails beantwoorden, gegevens overtypen of afspraken najagen. Dan is er bijna altijd een systeem dat dat werk overneemt, en daar zit vaak de snelste winst. De grootte van je bedrijf maakt daarbij niet uit. Wil je weten waar bij jou de meeste winst zit? Doe de <a class="textlink" href="https://groeiscan.oscarbodde.nl/" target="_blank" rel="noopener">groeiscan</a>. Systemen versterken ook een sterke <a class="textlink" href="/commercie">salesaanpak</a>, en met <a class="textlink" href="/ontwikkeling">persoonlijk leiderschap</a> houd je zelf de rust.</p>
     </div>
   </div>
 </section>
@@ -152,6 +217,7 @@
         <h5>Contact</h5>
         <a href="tel:0646434142">06 46 43 41 42</a>
         <a href="mailto:info@oscarbodde.nl">info@oscarbodde.nl</a>
+        <a href="/over-mij">Over mij</a>
         <a href="/algemene-voorwaarden">Algemene voorwaarden</a>
       </div>
     </div>

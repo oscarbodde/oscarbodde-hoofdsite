@@ -34,6 +34,11 @@
       "source": "/business-coaching",
       "destination": "/ontwikkeling",
       "permanent": true
+    },
+    {
+      "source": "/over-mij.html",
+      "destination": "/over-mij",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -52,6 +57,10 @@
     {
       "source": "/ontwikkeling",
       "destination": "/ontwikkeling.html"
+    },
+    {
+      "source": "/over-mij",
+      "destination": "/over-mij.html"
     }
   ]
 }

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagina niet gevonden | Oscar Bodde</title>
+<meta name="description" content="Deze pagina bestaat niet.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oscar Bodde">
+<meta property="og:title" content="Pagina niet gevonden | Oscar Bodde">
+<meta property="og:description" content="Deze pagina bestaat niet.">
+<meta property="og:url" content="https://oscarbodde.nl/404">
+<meta property="og:image" content="https://oscarbodde.nl/images/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="nl_NL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css?v=4">
+</head>
+<body>
+<header>
+  <div class="navpill">
+    <a class="wordmark" href="/">Oscar Bodde</a>
+    <nav class="links"><a href="/">Home</a><a href="/systemen">Systemen</a><a href="/commercie">Sales</a><a href="/ontwikkeling">Ontwikkeling</a><a href="/over-mij">Over mij</a><a href="/#contact">Contact</a></nav>
+    <div class="navcta"><a href="https://groeiscan.oscarbodde.nl/" class="cta-btn" target="_blank" rel="noopener">Doe de groeiscan</a></div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="/">Home</a><a href="/systemen">Systemen</a><a href="/commercie">Sales</a><a href="/ontwikkeling">Ontwikkeling</a><a href="/over-mij">Over mij</a><a href="/#contact">Contact</a>
+    <a href="https://groeiscan.oscarbodde.nl/" class="cta-btn" target="_blank" rel="noopener" style="margin-top:6px;text-align:center;">Doe de groeiscan</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap" style="max-width:720px;">
+    <span class="eyebrow">Fout 404</span>
+    <h1 class="h1-pillar">Deze pagina bestaat niet</h1>
+    <p class="lead">Het adres klopt niet of de pagina is verplaatst. Hier kom je weer verder:</p>
+    <div class="lever-list" style="margin-top:28px;">
+      <a class="lever" href="/"><span class="num">&#8962;</span><div><h3>Home</h3></div><span class="more">Naar de homepage</span></a>
+      <a class="lever" href="/systemen"><span class="num">1</span><div><h3>Systemen</h3></div><span class="more">Bekijk</span></a>
+      <a class="lever" href="/commercie"><span class="num">2</span><div><h3>Sales &amp; commercie</h3></div><span class="more">Bekijk</span></a>
+      <a class="lever" href="/ontwikkeling"><span class="num">3</span><div><h3>Persoonlijke groei &amp; teamontwikkeling</h3></div><span class="more">Bekijk</span></a>
+    </div>
+    <p style="margin-top:28px;">Kom je er niet uit? Mail naar <a class="textlink" href="mailto:info@oscarbodde.nl">info@oscarbodde.nl</a>.</p>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-word">Oscar Bodde</div>
+        <p style="max-width:300px;">Trainer voor ondernemers in sales en persoonlijk leiderschap, en bouwer van systemen die het werk lichter maken.</p>
+      </div>
+      <div>
+        <h5>Hefbomen</h5>
+        <a href="/systemen">Systemen</a>
+        <a href="/commercie">Sales &amp; commercie</a>
+        <a href="/ontwikkeling">Persoonlijke groei &amp; teamontwikkeling</a>
+        <a href="https://groeiscan.oscarbodde.nl/" target="_blank" rel="noopener">Groeiscan</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <a href="tel:0646434142">06 46 43 41 42</a>
+        <a href="mailto:info@oscarbodde.nl">info@oscarbodde.nl</a>
+        <a href="/over-mij">Over mij</a>
+        <a href="/algemene-voorwaarden">Algemene voorwaarden</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>2026 Oscar Bodde Coaching. Alle rechten voorbehouden.</span>
+      <span>KvK 90444442 · Apeldoorn</span>
+    </div>
+  </div>
+</footer>
+<script>
+
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errorEl = document.getElementById('cf-error');
+      const successEl = document.getElementById('cf-success');
+      const submitBtn = document.getElementById('cf-submit');
+      errorEl.style.display = 'none';
+      successEl.style.display = 'none';
+
+      const naam = document.getElementById('cf-naam').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
+      const bericht = document.getElementById('cf-bericht').value.trim();
+
+      if (!naam || !email || !bericht) {
+        errorEl.textContent = 'Vul alle velden in.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Versturen...';
+
+      try {
+        const web3res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: '8deb3e06-edb8-4c43-b4cf-5ee33a0d87e4',
+            subject: 'Nieuw contactformulier bericht van ' + naam,
+            name: naam,
+            email: email,
+            message: bericht
+          })
+        });
+
+        if (!web3res.ok) throw new Error('Web3Forms send failed');
+
+        // Ook opslaan in Supabase voor de admin-omgeving (mag stil falen; de mail is al onderweg)
+        fetch('https://jtlymmrvowymdxsdbcgo.supabase.co/rest/v1/contact_messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0bHltbXJ2b3d5bWR4c2RiY2dvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyMjUyMTUsImV4cCI6MjEwMjgwMTIxNX0.wrRMxZYkUS5vYngkTBNUeXaUeW9xP8IGVjiXgpBF_OY',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0bHltbXJ2b3d5bWR4c2RiY2dvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyMjUyMTUsImV4cCI6MjEwMjgwMTIxNX0.wrRMxZYkUS5vYngkTBNUeXaUeW9xP8IGVjiXgpBF_OY'
+          },
+          body: JSON.stringify({ naam, email, bericht })
+        }).catch(() => {});
+
+        contactForm.reset();
+        successEl.style.display = 'block';
+      } catch (err) {
+        errorEl.textContent = 'Er ging iets mis bij het versturen. Probeer het nog eens, of mail direct naar info@oscarbodde.nl.';
+        errorEl.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Verzenden';
+      }
+    });
+  }
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuToggle.innerHTML = isOpen ? '&times;' : '&#9776;';
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuToggle.innerHTML = '&#9776;';
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+
+</script>
+</body>
+</html>
