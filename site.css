@@ -522,3 +522,6 @@
 
   a.textlink{color:var(--forest);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--lime);text-decoration-thickness:2px;font-weight:500;}
   a.textlink:hover{background:var(--lime);text-decoration-color:transparent;}
+
+  .hero h1 .hl-line{display:block;}
+  .hero h1 .hl-accent{display:inline-block;background:linear-gradient(transparent 60%,var(--lime) 60%);padding-right:6px;margin-top:2px;}
